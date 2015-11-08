@@ -19,37 +19,6 @@ resultDAY2 <- data[d2,]
 
 
 myData <- rbind(resultDAY1, resultDAY2)
-# ----------------------------------------
-# plot 1
-# ----------------------------------------
-png(filename="plot1.png", width=480, height=480, units="px")
-hist(as.numeric(as.character(myData[,3])), main="Global Active Power", col="red", xlab="Global Activer Power (kilowatts)")
-dev.off()
-
-# ----------------------------------------
-# plot 2
-# ----------------------------------------
-png(filename="plot2.png", width=480, height=480, units="px")
-plot(c(1:2880), as.numeric(as.character(myData[,3])), type = "l", ylab="Global Active Power (kilowatts)", xlab ="",  xaxt = "n" )
-axis(1, c(0, 1440, 2880), c("Thu", "Fri", "Sat"))
-dev.off()
-
-# ----------------------------------------
-# plot 3
-# ----------------------------------------
-png(filename="plot3.png", width=480, height=480, units="px")
-
-plot(x, y, type="n", xaxt = "n", ylab="Energy sub metering", xlab="")
-x <- c(1:2880,1:2880,1:2880)
-y <- c(as.numeric(as.character(myData[,7])), as.numeric(as.character(myData[,8])), as.numeric(as.character(myData[,9])))
-points(x[1:2880], y[1:2880], col="black", type="l")
-points(x[2881:5760], y[2881:5760], col="red", type="l")
-points(x[5761:8640], y[5761:8640], col="blue", type="l")
-axis(1, c(0, 1440, 2880), c("Thu", "Fri", "Sat"))
-legend("topright", legend=c("Sub_metering_1", "Sub_metering_2","Sub_metering_3"), lty=c(1,1,1), col=c("black","red","blue"))
-
-dev.off()
-
 
 # ----------------------------------------
 # plot 4
@@ -81,5 +50,3 @@ plot(c(1:2880), as.numeric(as.character(myData[,4])), type = "l", ylab="Global_r
 axis(1, c(0, 1440, 2880), c("Thu", "Fri", "Sat"))
 
 dev.off()
-
-
